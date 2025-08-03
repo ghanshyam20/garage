@@ -1,0 +1,27 @@
+{# List of all services #}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    <h2 class="mb-4">Our Services</h2>
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-4 mb-4">
+           
+            <div class="card h-100 position-relative">
+                {% if service.image %}
+                <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.name }}</h5>
+                    <p class="card-text">{{ service.description }}</p>
+                    <p class="card-text fw-bold">Price: €{{ service.price }}</p>
+                </div>
+                {# Make the entire card clickable to the booking page #}
+                <a href="{% url 'booking' %}" class="stretched-link" title="Book this service"></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{# About page #}
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 pt-4">
+    {% if about %}
+    <h2 class="mb-3">{{ about.heading }}</h2>
+    {% if about.image %}
+    <img src="{{ about.image.url }}" alt="{{ about.heading }}" class="img-fluid mb-3">
+    {% endif %}
+    <p>{{ about.content|linebreaks }}</p>
+    {% else %}
+    <p>About information has not been configured yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

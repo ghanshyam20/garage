@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+
+{# Dashboard overview page showing summary stats and quick links. #}
+
+{% block dashboard_content %}
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card text-bg-light h-100">
+            <div class="card-body">
+                <h5 class="card-title">Services</h5>
+                <p class="card-text">{{ service_count }} total</p>
+                <a href="{% url 'dashboard_service_list' %}" class="stretched-link">Manage services</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-bg-light h-100">
+            <div class="card-body">
+                <h5 class="card-title">Testimonials</h5>
+                <p class="card-text">{{ testimonial_count }} total</p>
+                <a href="{% url 'dashboard_testimonial_list' %}" class="stretched-link">Manage testimonials</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-bg-light h-100">
+            <div class="card-body">
+                <h5 class="card-title">Bookings</h5>
+                <p class="card-text">{{ booking_count }} total</p>
+                <a href="{% url 'dashboard_booking_list' %}" class="stretched-link">View bookings</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

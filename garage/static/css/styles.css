@@ -1,0 +1,34 @@
+/* Custom styles for the garage website */
+
+body {
+    padding-top: 70px;
+}
+
+.card-img-top {
+    /* 
+       Ensure uploaded images fit nicely within the card without stretching
+       the page.  Set a fixed height and use object-fit so that images are
+       cropped to fill the available space while maintaining their aspect
+       ratio.  Width is forced to 100% so oversized photos don't overflow
+       their container.
+    */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+footer {
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 150px;
+    }
+}
