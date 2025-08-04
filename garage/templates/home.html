@@ -1,22 +1,20 @@
 
 {% extends 'base.html' %}
-
 {% block content %}
-<div class="container mt-5 pt-4">
-    <h2 class="mb-4">Popular Services</h2>
-    <div class="row">
+<div class="hero">
+    <h2>Welcome to Our Garage</h2>
+    <p>We offer top-quality automotive services at affordable prices.</p>
+</div>
+<div class="services">
+    <h3>Popular Services</h3>
+    <div class="service-grid">
         {% for service in popular_services %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                {% if service.image %}
-                <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.name }}">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ service.name }}</h5>
-                    <p class="card-text">{{ service.description }}</p>
-                    <p class="card-text fw-bold">Price: €{{ service.price }}</p>
-                </div>
-            </div>
+        <div class="service-card">
+            <a href="{% url 'booking' %}">
+                <img src="{{ service.image.url }}" alt="{{ service.name }}">
+                <h4>{{ service.name }}</h4>
+                <p>{{ service.price }} €</p>
+            </a>
         </div>
         {% endfor %}
     </div>

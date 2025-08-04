@@ -1,62 +1,10 @@
 
 {% extends 'base.html' %}
-{% load static %}
-{% load form_tags %}
-
 {% block content %}
-<div class="container mt-5 pt-4">
-    <h2 class="mb-4">Book a Service</h2>
-    <form id="booking-form" method="post" data-labor-rate="{{ labor_rate }}">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="id_name" class="form-label">Name</label>
-                    {{ form.name|add_class:"form-control" }}
-                </div>
-                <div class="mb-3">
-                    <label for="id_email" class="form-label">Email</label>
-                    {{ form.email|add_class:"form-control" }}
-                </div>
-                <div class="mb-3">
-                    <label for="id_contact" class="form-label">Contact number</label>
-                    {{ form.contact|add_class:"form-control" }}
-                </div>
-                <div class="mb-3">
-                    <label for="id_registration_number" class="form-label">Registration number</label>
-                    {{ form.registration_number|add_class:"form-control" }}
-                    <small class="text-muted">Format: ABC-123</small>
-                </div>
-                <div class="mb-3">
-                    <label for="id_hours" class="form-label">Labour hours</label>
-                    {{ form.hours|add_class:"form-control" }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label class="form-label">Services</label>
-                    {% for service in services %}
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="services" id="service_{{ service.id }}"
-                               value="{{ service.id }}" data-price="{{ service.price }}">
-                        <label class="form-check-label" for="service_{{ service.id }}">
-                            {{ service.name }} (€{{ service.price }})
-                        </label>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="mb-3">
-                    <label for="id_message" class="form-label">Message</label>
-                    {{ form.message|add_class:"form-control" }}
-                </div>
-                <p class="fw-bold">Total price: €<span id="total-price">0.00</span></p>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Booking</button>
-    </form>
-</div>
-{% endblock %}
-
-{% block scripts %}
-<script src="{% static 'js/booking.js' %}"></script>
+<h2>Book Your Service</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Booking</button>
+</form>
 {% endblock %}
