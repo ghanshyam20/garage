@@ -1,0 +1,16 @@
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.table {
+    background-color: white;
+}

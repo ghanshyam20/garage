@@ -40,6 +40,7 @@ INSTALLED_APPS: List[str] = [
     'django.contrib.staticfiles',
     # Local app
     'garage',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE: List[str] = [
@@ -132,3 +133,10 @@ MEDIA_ROOT: Path = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD: str = 'django.db.models.BigAutoField'
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,4 +1,7 @@
 from __future__ import annotations
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+
 
 from typing import Any
 

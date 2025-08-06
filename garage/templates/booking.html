@@ -1,10 +1,43 @@
-
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block content %}
-<h2>Book Your Service</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit Booking</button>
-</form>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Book Your Service</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="id_name" class="form-label">Name</label>
+                        {{ form.name|add_class:'form-control' }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_email" class="form-label">Email</label>
+                        {{ form.email|add_class:'form-control' }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_contact" class="form-label">Contact</label>
+                        {{ form.contact|add_class:'form-control' }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_registration_number" class="form-label">Registration Number</label>
+                        {{ form.registration_number|add_class:'form-control' }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_hours" class="form-label">Estimated Hours</label>
+                        {{ form.hours|add_class:'form-control' }}
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="id_message" class="form-label">Message</label>
+                        {{ form.message|add_class:'form-control' }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
